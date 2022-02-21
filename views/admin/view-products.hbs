@@ -1,0 +1,42 @@
+<section>
+    <div class="container">
+        <a href="/admin/add-user" type="button" class="btn btn-success  mt-3">ADD USER</a>
+        <table class="table mt-3" id="table_id">
+            <thead >
+                <tr>
+                   
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Options</th>
+                     
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.number}}</td>
+                    <td>{{this.age}}</td>
+                    <td><a href="/admin/delete-user/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete item')">Delete</a>
+                    <a href="/admin/edit-user/{{this._id}}" class="btn btn-primary">Edit</a>
+                   
+                    </td>
+
+                </tr>
+                {{/each}}
+               
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+$(document).ready( function () {
+    $('#table_id').DataTable();
+});
+</script>
